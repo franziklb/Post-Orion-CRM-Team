@@ -260,7 +260,7 @@ img { display: block; max-width: 100%; height: auto; }
   background-color: #CCC1BC; 
   color: white;
   margin-bottom: 30px;
-  margin-top: -1500px;
+  margin-top: -20px;
 }
 
 /* ---------- Responsive ---------- */
