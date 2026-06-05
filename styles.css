@@ -259,8 +259,8 @@ img { display: block; max-width: 100%; height: auto; }
 .role-label--recommendation {
   background-color: #CCC1BC; 
   color: white;
-  margin-bottom: 16px;
-  margin-top: -10px;
+  margin-bottom: 20px;
+  margin-top: -20px;
 }
 
 /* ---------- Responsive ---------- */
