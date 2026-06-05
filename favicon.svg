@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
+  <!-- BearingPoint side -->
+  <rect x="0" y="0" width="32" height="64" fill="#FFFFFF"/>
+  <!-- Post side -->
+  <rect x="32" y="0" width="32" height="64" fill="#FFCC00"/>
+
+  <!-- B (BearingPoint) -->
+  <text x="16" y="50"
+        text-anchor="middle"
+        font-family="Helvetica, Arial, sans-serif"
+        font-weight="900"
+        font-size="48"
+        fill="#000000">B</text>
+
+  <!-- P (Post) -->
+  <text x="48" y="50"
+        text-anchor="middle"
+        font-family="Helvetica, Arial, sans-serif"
+        font-weight="900"
+        font-size="48"
+        fill="#000000">P</text>
+
+  <!-- Red × at the seam: the "merge" mark -->
+  <g stroke="#E2001A" stroke-width="6" stroke-linecap="square" fill="none">
+    <line x1="24" y1="24" x2="40" y2="40"/>
+    <line x1="40" y1="24" x2="24" y2="40"/>
+  </g>
+</svg>
