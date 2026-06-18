@@ -4,322 +4,521 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>Programm Orion — Team-Profile | BearingPoint für Die Schweizerische Post</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
-
+<title>Programm Orion &#8212; Team-Profile | BearingPoint f&#xfc;r Die Schweizerische Post</title>
 <style>
-/* YOUR CSS — unchanged */
-:root{--bp-red:#E2001A;--bp-deep:#6E0B14;--black:#000000;--white:#FFFFFF;--g10:#FAF8F7;--g20:#E6DEDA;--g30:#CCC1BC;--g50:#98847A;}
+:root{
+  --bp-red:#E2001A;
+  --bp-deep:#6E0B14;
+  --black:#000000;
+  --white:#FFFFFF;
+  --g10:#FAF8F7;
+  --g20:#E6DEDA;
+  --g30:#CCC1BC;
+  --g50:#98847A;
+}
 *{box-sizing:border-box;margin:0;padding:0}
 img{display:block;max-width:100%;height:auto}
-body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:16px;line-height:1.55;color:var(--black);background:var(--white);-webkit-font-smoothing:antialiased;}
-/* ... keep rest EXACTLY as is ... */
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:16px;line-height:1.55;
+  color:var(--black);background:var(--white);
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:1180px;margin-inline:auto;padding-inline:32px}
+
+/* HEADER */
+.site-header{
+  border-block-end:1px solid var(--g20);
+  padding-block:22px;background:var(--white);
+  position:sticky;inset-block-start:0;z-index:10;
+}
+.header-row{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-size:18px;font-weight:700;color:var(--black);text-decoration:none;letter-spacing:-.01em}
+.client{display:flex;align-items:center;gap:14px}
+.client-label{font-size:12px;color:var(--g50);text-transform:uppercase;letter-spacing:.08em}
+.client-name{font-size:14px;font-weight:500;color:var(--black)}
+
+/* HERO */
+.hero{padding-block:88px 64px;background:var(--white)}
+.eyebrow{
+  display:flex;align-items:center;gap:12px;
+  font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--g50);
+  margin-block-end:28px;
+}
+.accent-bar{display:inline-block;width:36px;height:2px;background:var(--bp-red);flex-shrink:0}
+.hero h1{
+  font-weight:700;font-size:clamp(36px,5.5vw,62px);line-height:1.05;
+  letter-spacing:-.02em;margin-block-end:28px;max-width:20ch;
+}
+.hero h1 .muted{color:var(--g50);font-weight:700}
+.lead{font-size:18px;line-height:1.6;max-width:66ch;margin-block-end:48px}
+.meta{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+  padding-block-start:28px;border-block-start:1px solid var(--g20);
+}
+.meta dt{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--g50);margin-block-end:6px;font-weight:500}
+.meta dd{font-size:15px;font-weight:500}
+
+/* ROLE SECTIONS */
+.role-section{padding-block:88px;border-block-start:1px solid var(--g20)}
+.role-section.alt{background:var(--g10)}
+.role-section h2{
+  font-weight:700;font-size:clamp(24px,2.8vw,34px);letter-spacing:-.01em;
+  margin-block-end:24px;max-width:28ch;
+}
+
+/* PERSON BLOCK */
+.person-block{
+  display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start;
+  padding-block:48px;border-block-start:1px solid var(--g20);
+}
+.person-block:first-of-type{border-block-start:none;padding-block-start:0}
+
+/* PERSON CARD */
+.person-card{
+  background:var(--black);
+  position:relative;
+  overflow:hidden;
+  aspect-ratio:4/5;
+}
+.person-card-initials{
+  position:absolute;inset-block-start:50%;inset-inline-start:50%;
+  transform:translate(-50%,-60%);
+  font-size:clamp(52px,8vw,80px);font-weight:700;color:rgba(255,255,255,.12);
+  letter-spacing:-.03em;line-height:1;
+}
+.person-photo{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center 15%;
+  display:block;
+}
+.person-card-body{
+  position:absolute;inset-block-end:0;inset-inline:0;
+  padding:20px 20px 16px;
+  background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.3) 60%,rgba(0,0,0,0) 100%);
+  z-index:1;
+}
+.person-card-level{
+  font-size:10px;text-transform:uppercase;letter-spacing:.1em;
+  color:rgba(255,255,255,.6);margin-block-end:3px;
+}
+.person-card-name{font-size:18px;font-weight:700;color:var(--white);letter-spacing:-.01em}
+.person-card-loc{font-size:11px;color:rgba(255,255,255,.55);margin-block-start:2px}
+
+/* PERSON BODY */
+.person-body{padding-block-start:4px}
+.role-label{
+  display:inline-block;margin-block-end:14px;padding:4px 10px;
+  background:var(--bp-deep);color:var(--white);
+  font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:500;
+}
+.person-body h3{margin-block-end:4px;font-size:26px;font-weight:700;letter-spacing:-.01em}
+.role-subline{margin-block-end:24px;color:var(--g50);font-size:14px}
+.certs{
+  font-size:12px;color:var(--g50);margin-block-start:20px;
+  padding-block-start:16px;border-block-start:1px solid var(--g20);
+  line-height:1.6;
+}
+.certs strong{color:var(--black);font-weight:600}
+
+/* BULLETS */
+.bullets{list-style:none;padding:0;margin:0}
+.bullets li{
+  position:relative;padding:14px 0 14px 22px;
+  border-block-start:1px solid var(--g20);font-size:15px;line-height:1.55;
+}
+.bullets li:first-child{border-block-start:none;padding-block-start:0}
+.bullets li:first-child::before{inset-block-start:6px}
+.bullets li::before{
+  content:'';position:absolute;inset-inline-start:0;inset-block-start:20px;
+  width:8px;height:8px;background:var(--bp-red);
+}
+
+/* CLOSING */
+.closing{
+  padding-block:96px 88px;background:var(--white);
+  border-block-start:1px solid var(--g20);
+}
+.closing-line{
+  font-size:clamp(20px,2.2vw,28px);font-weight:700;
+  margin-block-end:16px;max-width:36ch;letter-spacing:-.01em;
+}
+.closing-contact{color:var(--g50);font-size:14px}
+
+/* FOOTER */
+.site-footer{border-block-start:1px solid var(--g20);padding-block:24px;background:var(--white)}
+.footer-row{display:flex;justify-content:space-between;gap:16px;font-size:12px;color:var(--g50)}
+
+@media(max-width:880px){
+  .hero{padding-block:56px 40px}
+  .meta{grid-template-columns:repeat(2,1fr)}
+  .person-block{grid-template-columns:1fr;gap:28px;padding-block:40px}
+  .person-card{aspect-ratio:3/2}
+  .role-section{padding-block:64px}
+  .closing{padding-block:64px}
+  .footer-row{flex-direction:column}
+}
+@media(max-width:520px){
+  .container{padding-inline:20px}
+  .meta{grid-template-columns:1fr;gap:18px}
+}
+
+/* PER-PERSON CHECKLISTS */
+.person-req{
+  margin-block-start:24px;
+  padding-block-start:20px;
+  border-block-start:1px solid var(--g20);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 40px;
+}
+.person-req-label{
+  font-size:10px;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--g50);font-weight:600;margin-block-end:8px;
+}
+.check-list{list-style:none;padding:0;margin:0}
+.check-list li{
+  display:grid;
+  grid-template-columns:15px 38% 1fr;
+  gap:0 10px;
+  align-items:start;
+  font-size:12px;
+  line-height:1.45;
+  padding-block:8px;
+  border-block-end:1px solid var(--g20);
+}
+.check-list li:last-child{border-block-end:none;padding-block-end:0}
+.chk{
+  width:15px;height:15px;flex-shrink:0;
+  border:1.5px solid var(--bp-red);border-radius:2px;
+  display:inline-flex;align-items:center;justify-content:center;
+  color:var(--bp-red);font-size:9px;font-weight:700;
+  margin-block-start:1px;
+}
+.req-item-label{font-weight:700;font-size:12px;line-height:1.45;color:var(--black)}
+.req-item-desc{color:#5a5a5a;font-size:12px;line-height:1.45}
+
+@media(max-width:880px){
+  .person-req{grid-template-columns:1fr}
+  .check-list li{grid-template-columns:15px 1fr}
+  .req-item-desc{grid-column:2}
+}
+
+@media(prefers-color-scheme:dark){
+  :root{--black:#000000;--white:#FFFFFF;--g10:#FAF8F7;--g20:#E6DEDA;--g50:#98847A}
+  body{color:var(--black);background:var(--white)}
+}
 </style>
 </head>
-
 <body>
 
 <header class="site-header">
   <div class="container header-row">
-    <a class="brand" href="#" aria-label="BearingPoint">
-      <img src="assets/bearingpoint-logo.png" alt="BearingPoint" />
-    </a>
+    <a class="brand" href="#" aria-label="BearingPoint">BearingPoint</a>
     <div class="client">
-      <span class="client-label">Vorgelegt für</span>
-      <img src="assets/post-logo.png" alt="Die Schweizerische Post" />
+      <span class="client-label">Vorgelegt f&#xfc;r</span>
+      <span class="client-name">Die Schweizerische Post</span>
     </div>
   </div>
 </header>
 
 <main>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">
+        <span class="accent-bar" aria-hidden="true"></span>
+        Begleitmaterial zur Offerte &middot; Vertraulich
+      </p>
+      <h1>
+        Programm Orion.<br>
+        <span class="muted">Unsere Kandidaten f&#xfc;r das CRM Transformationsteam Orion.</span>
+      </h1>
+      <p class="lead">
+        Erg&#xe4;nzend zu unserer schriftlichen Offerte f&#xfc;r das CRM Transformationsteam des
+        CRM-Transformationsvorhabens <strong>Orion</strong> m&#xf6;chten wir Ihnen unsere Kandidaten pers&#xf6;nlich vorstellen.
+        In den folgenden Abstract findet ihr warum unsere Kandidaten zu Orion passen.
+      </p>
+      <dl class="meta">
+        <div><dt>Auftraggeber</dt><dd>Post CH AG</dd></div>
+        <div><dt>Rolle</dt><dd>CRM Transformationsteam / CRM Transformation Orion</dd></div>
+        <div><dt>Einsatzdauer</dt><dd>ab sofort bis 6/2027, Option bis Ende 2030</dd></div>
+        <div><dt>Einsatzort</dt><dd>Bern &middot; Remote</dd></div>
+      </dl>
+    </div>
+  </section>
 
-<section class="hero">
-  <div class="container">
-    <p class="eyebrow">
-      <span class="accent-bar"></span>
-      Begleitmaterial zur Offerte · Vertraulich
-    </p>
-    <h1>
-      Programm Orion.<br>
-      <span class="muted">Unsere Kandidaten für das CRM Transformationsteam Orion.</span>
-    </h1>
-    <p class="lead">
-      Ergänzend zu unserer schriftlichen Offerte für das CRM Transformationsteam des
-      CRM-Transformationsvorhabens <strong>Orion</strong> möchten wir Ihnen unsere Kandidaten persönlich vorstellen.
-      In den folgenden Abstract findet ihr warum unsere Kandidaten zu Orion passen.
-    </p>
-  </div>
-</section>
+  <!-- BSI PLATTFORM SPECIALISTS -->
+  <section class="role-section">
+    <div class="container">
+      <p class="eyebrow"><span class="accent-bar"></span>Rolle 1</p>
+      <h2>BSI Plattform Specialists</h2>
 
-<!-- ROLLE 1: BSI PLATTFORM SPECIALISTS -->
-<section class="role-section">
-<div class="container">
-<p class="eyebrow"><span class="accent-bar"></span>Rolle 1</p>
-<h2>BSI Plattform Specialists</h2>
+      <!-- DANIEL KLEMM -->
+      <article class="person-block">
+        <div class="person-card">
+          <div class="person-card-initials">SV</div>
+          <div class="person-card-body">
+            <div class="person-card-level">Professional (S3)</div>
+            <div class="person-card-name">Simone Venier</div>
+            <div class="person-card-loc">Z&#xfc;rich, Schweiz</div>
+          </div>
+        </div>
+        <div class="person-body">
+          <p class="role-label">BSI Plattform Specialist</p>
+          <h3>Daniel Klemm</h3>
+          <p class="role-subline">Expert (S4) &middot; BearingPoint</p>
+          <ul class="bullets">
+            <li><strong>Technische Leitung BSI Practice @ BearingPoint.</strong> Spezialist f&#xfc;r die gesamte BSI Customer Suite &#8212; CRM, CDP, EIP, AI, Insight und Engage.</li>
+            <li><strong>BSI SaaS-Transformationen.</strong> Mehrfach nachgewiesene On-Premise-zu-Cloud-Migrationen in regulierten Branchen, inkl. E2E-Datenmigration mit Datenmodell, Mapping und Qualit&#xe4;tssicherung.</li>
+            <li><strong>Integrations- &amp; Schnittstellenarchitektur.</strong> Anbindung von SAP und Umsystemen; Release- und Staging-Konzepte f&#xfc;r stabile, strukturierte Rollouts.</li>
+          </ul>
+          <p class="certs"><strong>Zertifizierungen:</strong> BSI Masterclass &middot; BSI Certified Developer &middot; BSI Low-Code &middot; B.Sc. Computer Science, Martin-Luther-Universit&#xe4;t</p>
+          <div class="person-req">
+            <div>
+              <p class="person-req-label">Skills</p>
+              <ul class="check-list">
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Mind. 2 erfolgreich abgeschlossene BSI Suite (Cloud-)Migrationen</span><span class="req-item-desc">&#x2014; Mehrfach nachgewiesene On-Premise-zu-Cloud-Migrationen inkl. E2E-Datenmigration mit Datenmodell, Mapping und Qualit&#xe4;tssicherung in regulierten Branchen.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">BSI-Zertifizierung(en) vorhanden</span><span class="req-item-desc">&#x2014; BSI Masterclass, BSI Certified Developer, BSI Low-Code &#x2013; drei aktive Kernzertifizierungen der BSI Customer Suite.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Tiefes Wissen der BSI-Standardmodule: Marketing Cloud, Sales, Service/Case Management</span><span class="req-item-desc">&#x2014; Technische Leitung der BSI Practice bei BearingPoint; Spezialist f&#xfc;r die gesamte BSI Customer Suite inkl. CRM, CDP, EIP, AI, Insight und Engage.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">BSI-Konfiguration, Workflow-Design und Integrationsmuster</span><span class="req-item-desc">&#x2014; Anbindung von SAP und Umsystemen; Entwicklung von Release- und Staging-Konzepten f&#xfc;r strukturierte und stabile Rollouts.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Datenmigrations-Erfahrung (CRM-Datenmodelle, Deduplizierung, ETL)</span><span class="req-item-desc">&#x2014; E2E-Datenmigration mit Datenmodell, Mapping und Qualit&#xe4;tssicherung; Erfahrung mit komplexen CRM-Datenstrukturen in regulierten Branchen.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Kenntnisse BSI Release-Management und Upgrade-Pfad</span><span class="req-item-desc">&#x2014; Konzeption und Umsetzung von Release- und Staging-Konzepten; strukturiertes Rollout-Management f&#xfc;r reproduzierbare Deployments.</span></li>
+              </ul>
+            </div>
+            <div>
+              <p class="person-req-label">Soft-Skills</p>
+              <ul class="check-list">
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">F&#xe4;higkeit, technische Konzepte f&#xfc;r Business-Stakeholder zu &#xfc;bersetzen</span><span class="req-item-desc">&#x2014; Langj&#xe4;hrige Erfahrung als technischer Leiter mit direktem Kundenkontakt; Br&#xfc;ckenfunktion zwischen BSI-Plattform und Fachanforderungen.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Ausgepr&#xe4;gte Dokumentationsdisziplin</span><span class="req-item-desc">&#x2014; B.Sc. Informatik; strukturierte Arbeitsweise als Basis f&#xfc;r Integrations- und Migrationskonzepte bei mehreren Kundenprojekten.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Sicheres Auftreten bei Customizing-Anfragen mit konstruktiven Alternativen</span><span class="req-item-desc">&#x2014; Technische Leitung der BSI Practice; erfahren im Bewerten von Standard- vs. Custom-Ans&#xe4;tzen mit klarer Empfehlung.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Kollaborativer Arbeitsstil mit internen IT-Teams</span><span class="req-item-desc">&#x2014; Enge Zusammenarbeit mit Kunden-IT-Teams bei BSI SaaS-Transformationen und Schnittstellenprojekten.</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
 
-<article class="person-block">
-<div class="person-card">
-<img class="person-photo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" alt="Daniel Klemm">
-<div class="person-card-body">
-<div class="person-card-level">Expert (S4)</div>
-<div class="person-card-name">Daniel Klemm</div>
-<div class="person-card-loc">Berlin, Germany</div>
-</div>
-</div>
-<div class="person-body">
-<p class="role-label">BSI Plattform Specialist</p>
-<h3>Daniel Klemm</h3>
-<p class="role-subline">Expert (S4) &middot; BearingPoint</p>
-<ul class="bullets">
-<li><strong>Technische Leitung BSI Practice @ BearingPoint.</strong> Spezialist f&#xfc;r die gesamte BSI Customer Suite &#8212; CRM, CDP, EIP, AI, Insight und Engage.</li>
-<li><strong>BSI SaaS-Transformationen.</strong> Mehrfach nachgewiesene On-Premise-zu-Cloud-Migrationen in regulierten Branchen, inkl. E2E-Datenmigration mit Datenmodell, Mapping und Qualit&#xe4;tssicherung.</li>
-<li><strong>Integrations- &amp; Schnittstellenarchitektur.</strong> Anbindung von SAP und Umsystemen; Release- und Staging-Konzepte f&#xfc;r stabile, strukturierte Rollouts.</li>
-</ul>
-<p class="certs"><strong>Zertifizierungen:</strong> BSI Masterclass &middot; BSI Certified Developer &middot; BSI Low-Code &middot; B.Sc. Computer Science, Martin-Luther-Universit&#xe4;t</p>
-<div class="person-req">
-<div>
-<p class="person-req-label">Skills</p>
-<ul class="check-list">
-<li><span class="chk">&#x2713;</span><strong>Mind. 2 erfolgreich abgeschlossene BSI Suite (Cloud-)Migrationen</strong> &#8212; Leitung und Umsetzung mehrerer BSI Customer Suite (SaaS) Transformationen inkl. Migration On-Premise zu Cloud in regulierten Branchen.</li>
-<li><span class="chk">&#x2713;</span><strong>BSI-Zertifizierung(en) vorhanden</strong> &#8212; BSI Masterclass, BSI Certified Developer und BSI Low-Code &ndash; 3 aktive BSI-Zertifikate.</li>
-<li><span class="chk">&#x2713;</span><strong>Tiefes Wissen der BSI-Standardmodule: Marketing Cloud, Sales, Service/Case Management</strong> &#8212; Spezialist f&uuml;r die gesamte BSI Customer Suite (BSI.CRM, BSI.CDP, BSI.EIP, BSI.AI, BSI.Insight, BSI.Engage).</li>
-<li><span class="chk">&#x2713;</span><strong>BSI-Konfiguration, Workflow-Design und Integrationsmuster</strong> &#8212; Entwicklung und Umsetzung von Integrations- und Schnittstellenarchitekturen inkl. SAP-Anbindung und Umsystemen.</li>
-<li><span class="chk">&#x2713;</span><strong>Datenmigrations-Erfahrung (CRM-Datenmodelle, Deduplizierung, ETL)</strong> &#8212; End-to-End-Verantwortung f&uuml;r Datenmigration (BSI OnPrem &rarr; SaaS) inkl. Datenmodell, Mapping, Qualit&auml;tssicherung und Migrationstooling.</li>
-<li><span class="chk">&#x2713;</span><strong>Kenntnisse BSI Release-Management und Upgrade-Pfad</strong> &#8212; Konzeption und Etablierung von Release- &amp; Staging-Konzepten zur Sicherstellung stabiler Deployments und strukturierter Rollouts.</li>
-</ul>
-</div>
-<div>
-<p class="person-req-label">Soft-Skills</p>
-<ul class="check-list">
-<li><span class="chk">&#x2713;</span><strong>F&auml;higkeit, technische Konzepte f&uuml;r Business-Stakeholder zu &uuml;bersetzen</strong> &#8212; Als technischer Leiter der BSI Practice @ BearingPoint regelm&auml;&szlig;ige Br&uuml;ckenrolle zwischen Plattform-Entwicklung und Business.</li>
-<li><span class="chk">&#x2713;</span><strong>Ausgepr&auml;gte Dokumentationsdisziplin</strong> &#8212; End-to-End-Verantwortung inkl. Datenmodell-, Mapping- und QS-Dokumentation in mehreren BSI SaaS-Transformationen nachgewiesen.</li>
-<li><span class="chk">&#x2713;</span><strong>Sicheres Auftreten bei Customizing-Anfragen mit konstruktiven Alternativen</strong> &#8212; Standard-First-Ansatz in der BSI Practice; priorisiert Plattformstandard &uuml;ber individuelle Anpassungen zur Sicherung der Upgrade-F&auml;higkeit.</li>
-<li><span class="chk">&#x2713;</span><strong>Kollaborativer Arbeitsstil mit internen IT-Teams</strong> &#8212; Anbindung und enge Zusammenarbeit mit internen SAP- und IT-Teams in mehreren Transformationsprojekten nachgewiesen.</li>
-</ul>
-</div>
-</div>
-</div>
-</article>
+      <!-- STEFAN WALESCH -->
+      <article class="person-block">
+        <div class="person-card">
+          <div class="person-card-initials">SW</div>
+          <div class="person-card-body">
+            <div class="person-card-level">Expert (S4)</div>
+            <div class="person-card-name">Stefan Walesch</div>
+            <div class="person-card-loc">Berlin, Germany</div>
+          </div>
+        </div>
+        <div class="person-body">
+          <p class="role-label">BSI Plattform Specialist</p>
+          <h3>Stefan Walesch</h3>
+          <p class="role-subline">Expert (S4) &middot; BearingPoint</p>
+          <ul class="bullets">
+            <li><strong>BSI-CRM Konfiguration &amp; Betrieb.</strong> Entwicklung und Anpassung der BSI-CRM-Umgebung; plattform&#xfc;bergreifende Schnittstellen zu Salesforce, SAP und MS-Produkten (BSI-EIP, BSI-MPI, SSO, ArgoCD, Docker).</li>
+            <li><strong>Grossdaten-Migration.</strong> Vollmigration via BSI-EIP mit &gt;150 GB Datens&#xe4;tzen; Major/Minor-Upgrades, BSI-Serverinfrastruktur, Log-Debugging und Deployment.</li>
+            <li><strong>Prozessautomatisierung &amp; Entwicklung.</strong> Java, TypeScript/JavaScript, BigData Analytics; Greenfield Software- und Produktentwicklung.</li>
+          </ul>
+          <p class="certs"><strong>Zertifizierungen:</strong> BSI-Masterclass (2022) &middot; CRM-Admin &middot; Eclipse Scout Advanced &middot; IREB CPRE &middot; M.Eng. Informatik, HS Merseburg</p>
+          <div class="person-req">
+            <div>
+              <p class="person-req-label">Skills</p>
+              <ul class="check-list">
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Mind. 2 erfolgreich abgeschlossene BSI Suite (Cloud-)Migrationen</span><span class="req-item-desc">&#x2014; Vollmigration via PL/SQL &#xfc;ber BSI-EIP mit &gt;150 GB Datens&#xe4;tzen; Major- und Minor-Upgrades von BSI-Instanzen bei mehreren Kunden.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">BSI-Zertifizierung(en) vorhanden</span><span class="req-item-desc">&#x2014; BSI Masterclass (2022), CRM-Admin, Eclipse Scout Advanced, CRM Programming Essentials und CRM Essentials &#x2013; 5 aktive BSI-Zertifikate.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Tiefes Wissen der BSI-Standardmodule: Marketing Cloud, Sales, Service/Case Management</span><span class="req-item-desc">&#x2014; Entwicklung, Konfiguration und Anpassung der BSI-CRM-Umgebung bei mehreren Kunden; Fachkompetenz BSI-CRM, BSI-EIP und BSI Insurance Layer.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">BSI-Konfiguration, Workflow-Design und Integrationsmuster</span><span class="req-item-desc">&#x2014; Plattform&#xfc;bergreifende Schnittstellen zu Salesforce, SAP und MS-Produkte (BSI-EIP, BSI-MPI, SSO, ArgoCD, Docker, Grafana).</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Datenmigrations-Erfahrung (CRM-Datenmodelle, Deduplizierung, ETL)</span><span class="req-item-desc">&#x2014; Vollmigration via PL/SQL &#xfc;ber BSI-EIP mit &gt;150 GB Datens&#xe4;tzen inkl. Log-Debugging und Qualit&#xe4;tssicherung.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Kenntnisse BSI Release-Management und Upgrade-Pfad</span><span class="req-item-desc">&#x2014; Major- und Minor-Upgrades von BSI-Instanzen, Wartung der BSI-Serverinfrastruktur (Konfiguration, Neustarts, Log-Debugging, Deployment).</span></li>
+              </ul>
+            </div>
+            <div>
+              <p class="person-req-label">Soft-Skills</p>
+              <ul class="check-list">
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">F&#xe4;higkeit, technische Konzepte f&#xfc;r Business-Stakeholder zu &#xfc;bersetzen</span><span class="req-item-desc">&#x2014; IREB Certified Professional for Requirements Engineering (CPRE); strukturierte Anforderungsaufnahme als Br&#xfc;cke zwischen Technik und Fachbereich.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Ausgepr&#xe4;gte Dokumentationsdisziplin</span><span class="req-item-desc">&#x2014; IREB CPRE-Zertifizierung; strukturiertes Anforderungsmanagement und technische Dokumentation als Projektstandard.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Sicheres Auftreten bei Customizing-Anfragen mit konstruktiven Alternativen</span><span class="req-item-desc">&#x2014; Fokus auf Plattformstandards und strukturierte L&#xf6;sungsarchitektur; Greenfield Software- und Produktentwicklung statt Ad-hoc-Anpassungen.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Kollaborativer Arbeitsstil mit internen IT-Teams</span><span class="req-item-desc">&#x2014; Langj&#xe4;hrige Zusammenarbeit mit internen IT-Teams in BSI-CRM-Betrieb und DevOps-Prozessen (ArgoCD, Docker) bei mehreren Kunden.</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
 
-<article class="person-block">
-<div class="person-card">
-<img class="person-photo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" alt="Stefan Walesch">
-<div class="person-card-body">
-<div class="person-card-level">Expert (S4)</div>
-<div class="person-card-name">Stefan Walesch</div>
-<div class="person-card-loc">Berlin, Germany</div>
-</div>
-</div>
-<div class="person-body">
-<p class="role-label">BSI Plattform Specialist</p>
-<h3>Stefan Walesch</h3>
-<p class="role-subline">Expert (S4) &middot; BearingPoint</p>
-<ul class="bullets">
-<li><strong>BSI-CRM Konfiguration &amp; Betrieb.</strong> Entwicklung und Anpassung der BSI-CRM-Umgebung; plattform&#xfc;bergreifende Schnittstellen zu Salesforce, SAP und MS-Produkten (BSI-EIP, BSI-MPI, SSO, ArgoCD, Docker).</li>
-<li><strong>Grossdaten-Migration.</strong> Vollmigration via BSI-EIP mit &gt;150 GB Datens&#xe4;tzen; Major/Minor-Upgrades, BSI-Serverinfrastruktur, Log-Debugging und Deployment.</li>
-<li><strong>Prozessautomatisierung &amp; Entwicklung.</strong> Java, TypeScript/JavaScript, BigData Analytics; Greenfield Software- und Produktentwicklung.</li>
-</ul>
-<p class="certs"><strong>Zertifizierungen:</strong> BSI-Masterclass (2022) &middot; CRM-Admin &middot; Eclipse Scout Advanced &middot; IREB CPRE &middot; M.Eng. Informatik, HS Merseburg</p>
-<div class="person-req">
-<div>
-<p class="person-req-label">Skills</p>
-<ul class="check-list">
-<li><span class="chk">&#x2713;</span><strong>Mind. 2 erfolgreich abgeschlossene BSI Suite (Cloud-)Migrationen</strong> &#8212; Vollmigration via PL/SQL &uuml;ber BSI-EIP mit &gt;150 GB Datens&auml;tzen; Major- und Minor-Upgrades von BSI-Instanzen bei mehreren Kunden.</li>
-<li><span class="chk">&#x2713;</span><strong>BSI-Zertifizierung(en) vorhanden</strong> &#8212; BSI Masterclass (2022), CRM-Admin, Eclipse Scout Advanced, CRM Programming Essentials und CRM Essentials &ndash; 5 aktive BSI-Zertifikate.</li>
-<li><span class="chk">&#x2713;</span><strong>Tiefes Wissen der BSI-Standardmodule: Marketing Cloud, Sales, Service/Case Management</strong> &#8212; Entwicklung, Konfiguration und Anpassung der BSI-CRM-Umgebung bei mehreren Kunden; Fachkompetenz BSI-CRM, BSI-EIP und BSI Insurance Layer.</li>
-<li><span class="chk">&#x2713;</span><strong>BSI-Konfiguration, Workflow-Design und Integrationsmuster</strong> &#8212; Plattform&uuml;bergreifende Schnittstellen zu Salesforce, SAP und MS-Produkten (BSI-EIP, BSI-MPI, SSO, ArgoCD, Docker, Grafana).</li>
-<li><span class="chk">&#x2713;</span><strong>Datenmigrations-Erfahrung (CRM-Datenmodelle, Deduplizierung, ETL)</strong> &#8212; Vollmigration via PL/SQL &uuml;ber BSI-EIP mit &gt;150 GB Datens&auml;tzen inkl. Log-Debugging und Qualit&auml;tssicherung.</li>
-<li><span class="chk">&#x2713;</span><strong>Kenntnisse BSI Release-Management und Upgrade-Pfad</strong> &#8212; Major- und Minor-Upgrades von BSI-Instanzen, Wartung der BSI-Serverinfrastruktur (Konfiguration, Neustarts, Log-Debugging, Deployment).</li>
-</ul>
-</div>
-<div>
-<p class="person-req-label">Soft-Skills</p>
-<ul class="check-list">
-<li><span class="chk">&#x2713;</span><strong>F&auml;higkeit, technische Konzepte f&uuml;r Business-Stakeholder zu &uuml;bersetzen</strong> &#8212; IREB Certified Professional for Requirements Engineering (CPRE); strukturierte Anforderungsaufnahme als Br&uuml;cke zwischen Technik und Fachbereich.</li>
-<li><span class="chk">&#x2713;</span><strong>Ausgepr&auml;gte Dokumentationsdisziplin</strong> &#8212; IREB CPRE-Zertifizierung; strukturiertes Anforderungsmanagement und technische Dokumentation als Projektstandard.</li>
-<li><span class="chk">&#x2713;</span><strong>Sicheres Auftreten bei Customizing-Anfragen mit konstruktiven Alternativen</strong> &#8212; Fokus auf Plattformstandards und strukturierte L&ouml;sungsarchitektur; Greenfield Software- und Produktentwicklung statt Ad-hoc-Anpassungen.</li>
-<li><span class="chk">&#x2713;</span><strong>Kollaborativer Arbeitsstil mit internen IT-Teams</strong> &#8212; Langj&auml;hrige Zusammenarbeit mit internen IT-Teams in BSI-CRM-Betrieb und DevOps-Prozessen (ArgoCD, Docker) bei mehreren Kunden.</li>
-</ul>
-</div>
-</div>
-</div>
-</article>
-</div>
-</section>
+    </div>
+  </section>
 
-<!-- ROLLE 2: DESIGN & TRANSFORMATION LEADS -->
-<section class="role-section alt">
-<div class="container">
-<p class="eyebrow"><span class="accent-bar"></span>Rolle 2</p>
-<h2>Design &amp; Transformation Leads</h2>
+  <!-- DESIGN & TRANSFORMATION LEADS -->
+  <section class="role-section alt">
+    <div class="container">
+      <p class="eyebrow"><span class="accent-bar"></span>Rolle 2</p>
+      <h2>Design &amp; Transformation Leads</h2>
 
-<article class="person-block">
-<div class="person-card">
-<img class="person-photo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" alt="Roland Wendl">
-<div class="person-card-body">
-<div class="person-card-level">Senior Expert (S5)</div>
-<div class="person-card-name">Roland Wendl</div>
-<div class="person-card-loc">D&#xfc;sseldorf, Deutschland</div>
-</div>
-</div>
-<div class="person-body">
-<p class="role-label">Design &amp; Transformation Lead</p>
-<h3>Roland Wendl</h3>
-<p class="role-subline">Senior Expert (S5) &middot; BearingPoint</p>
-<ul class="bullets">
-<li><strong>BSI onPrem &rarr; Cloud-Migration.</strong> Roadmap, Architektur, Lift &amp; Shift, DevOps, CI/CD und Release-Management &#8212; inkl. BSI-Migrationsprojekt bei einer Schweizer Sozialversicherung.</li>
-<li><strong>Fit-Gap &amp; Standard-First.</strong> Mehrfach durchgef&#xfc;hrte Fit-Gap-Analysen BSI onPrem zu SaaS; Business Case und Produktanalysen f&#xfc;r Versicherungen und Allspartenversicherer.</li>
-<li><strong>CRM-Programmleitung.</strong> Steuerung komplexer Hersteller- und Konfigurator-Teams; BSI Customer Suite Implementierungen f&#xfc;r drei Vertriebswege.</li>
-</ul>
-<p class="certs"><strong>Zertifizierungen:</strong> BSI Masterclass &middot; CRM Admin &middot; CX &middot; CRM &middot; ARIS &middot; B.Sc. Wirtschaftsinformatik, EUFH Br&#xfc;hl</p>
-<div class="person-req">
-<div>
-<p class="person-req-label">Skills</p>
-<ul class="check-list">
-<li><span class="chk">&#x2713;</span><strong>Gesch&auml;ftsprozessmodellierung (BPMN 2.0 oder &auml;quivalent)</strong> &#8212; ARIS-zertifiziert (SCM Academy); Fit-Gap-Analysen BSI onPrem zu BSI SaaS mit Prozessmodellierung bei mehreren Versicherungskunden.</li>
-<li><span class="chk">&#x2713;</span><strong>Lean / Six Sigma Methodik (Green Belt oder h&ouml;her bevorzugt)</strong> &#8212; Mehrfach durchgef&uuml;hrte Fit-Gap-Analysen und Business-Case-Berechnungen f&uuml;r Allspartenversicherer; strukturierte Prozessoptimierungsmethodik in der CRM-Programmleitung.</li>
-<li><span class="chk">&#x2713;</span><strong>CRM-Dom&auml;nenwissen: Marketing, Sales und/oder Customer Service Prozesse</strong> &#8212; BSI Customer Suite Implementierung bei deutschem Allspartenversicherer f&uuml;r drei Vertriebswege; CX- und CRM-zertifiziert (BSI).</li>
-<li><span class="chk">&#x2713;</span><strong>Workshop-Design und Moderationstechniken</strong> &#8212; Steuerung von Hersteller-, Partner- und externen Konfigurator-Teams; Fit-Gap-Workshops BSI onPrem zu SaaS bei verschiedenen Kunden moderiert.</li>
-<li><span class="chk">&#x2713;</span><strong>Target Operating Model Design</strong> &#8212; BSI CRM Migration bei Schweizer Sozialversicherung inkl. Roadmap, Architektur und Zielbild; BSI Customer Suite Produktanalyse inkl. Business Case f&uuml;r deutschen Allspartenversicherer.</li>
-<li><span class="chk">&#x2713;</span><strong>KPI-Definition und Performance-Framework-Entwicklung</strong> &#8212; CX- und CRM-zertifiziert (BSI); Business-Case-Berechnung und KPI-basierte Steuerung in der CRM-Programmleitung bei deutschen Allspartenversicherern.</li>
-</ul>
-</div>
-<div>
-<p class="person-req-label">Soft-Skills</p>
-<ul class="check-list">
-<li><span class="chk">&#x2713;</span><strong>Durchsetzungsstark und sicher im Umgang mit Komplexit&auml;t</strong> &#8212; Steuerung komplexer Hersteller-, Partner- und Konfigurator-Teams; CRM Plattform PoC (Salesforce vs. BSI) mit klarer Empfehlung f&uuml;r deutschen Rechtsschutzversicherer.</li>
-<li><span class="chk">&#x2713;</span><strong>Neutraler Moderator &mdash; vermeidet Parteinahme f&uuml;r einzelne Fachbereiche</strong> &#8212; Externe Beraterrolle ohne interne Interessenkonflikte; Moderation zwischen mehreren Vertriebswegen (3 Kan&auml;le) in einer BSI Customer Suite Implementierung.</li>
-<li><span class="chk">&#x2713;</span><strong>Strukturiertes Denken und klare Darstellung von Trade-offs</strong> &#8212; Business-Case-Berechnungen und Produktanalysen f&uuml;r Allspartenversicherer; Fit-Gap BSI onPrem zu SaaS mit klaren Handlungsempfehlungen bei mehreren Kunden.</li>
-<li><span class="chk">&#x2713;</span><strong>Hohe Verantwortlichkeit und Lieferorientierung</strong> &#8212; Mehrj&auml;hrige CRM-Programmleitung f&uuml;r BSI Customer Suite Transformationen bei deutschen Versicherern; End-to-End-Verantwortung von Roadmap bis Rollout.</li>
-<li><span class="chk">&#x2713;</span><strong>F&auml;higkeit, mit Mehrdeutigkeiten umzugehen und Konsens herzustellen</strong> &#8212; Steuerung heterogener Teams (Hersteller, Partner, Konfiguratoren) und Vertriebswege in komplexen Transformationsphasen.</li>
-</ul>
-</div>
-</div>
-</div>
-</article>
+      <!-- ROLAND WENDL -->
+      <article class="person-block">
+        <div class="person-card">
+          <div class="person-card-initials">RW</div>
+          <div class="person-card-body">
+            <div class="person-card-level">Senior Expert (S5)</div>
+            <div class="person-card-name">Roland Wendl</div>
+            <div class="person-card-loc">D&#xfc;sseldorf, Deutschland</div>
+          </div>
+        </div>
+        <div class="person-body">
+          <p class="role-label">Design &amp; Transformation Lead</p>
+          <h3>Roland Wendl</h3>
+          <p class="role-subline">Senior Expert (S5) &middot; BearingPoint</p>
+          <ul class="bullets">
+            <li><strong>BSI onPrem &rarr; Cloud-Migration.</strong> Roadmap, Architektur, Lift &amp; Shift, DevOps, CI/CD und Release-Management &#8212; inkl. BSI-Migrationsprojekt bei einer Schweizer Sozialversicherung.</li>
+            <li><strong>Fit-Gap &amp; Standard-First.</strong> Mehrfach durchgef&#xfc;hrte Fit-Gap-Analysen BSI onPrem zu SaaS; Business Case und Produktanalysen f&#xfc;r Versicherungen und Allspartenversicherer.</li>
+            <li><strong>CRM-Programmleitung.</strong> Steuerung komplexer Hersteller- und Konfigurator-Teams; BSI Customer Suite Implementierungen f&#xfc;r drei Vertriebswege.</li>
+          </ul>
+          <p class="certs"><strong>Zertifizierungen:</strong> BSI Masterclass &middot; CRM Admin &middot; CX &middot; CRM &middot; ARIS &middot; B.Sc. Wirtschaftsinformatik, EUFH Br&#xfc;hl</p>
+          <div class="person-req">
+            <div>
+              <p class="person-req-label">Skills</p>
+              <ul class="check-list">
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Business Process Modeling (BPMN 2.0 oder gleichwertig)</span><span class="req-item-desc">&#x2014; Mehrfach durchgef&#xfc;hrte Fit-Gap-Analysen BSI onPrem zu SaaS; Prozessdesign und Architekturentwurf f&#xfc;r CRM-Transformationen bei Versicherungen und Allspartenversicherern.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Lean / Six Sigma Methodik (Green Belt oder h&#xf6;her bevorzugt)</span><span class="req-item-desc">&#x2014; ARIS-Zertifizierung; strukturierte Prozessanalyse und -optimierung als Basis f&#xfc;r CRM-Implementierungen.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">CRM-Dom&#xe4;nenwissen: Marketing, Sales und/oder Customer Service</span><span class="req-item-desc">&#x2014; BSI Customer Suite Implementierungen f&#xfc;r drei Vertriebswege; Programmleitung f&#xfc;r komplexe Hersteller- und Konfigurator-Teams.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Workshop-Design und Moderationstechniken</span><span class="req-item-desc">&#x2014; Steuerung von Fit-Gap-Workshops und Stakeholder-Abstimmungen; Business Case und Produktanalysen f&#xfc;r Versicherungen.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Target Operating Model Design</span><span class="req-item-desc">&#x2014; Roadmap, Architektur und Lift &amp; Shift f&#xfc;r BSI onPrem &#x2192; Cloud-Migration inkl. DevOps, CI/CD und Release-Management.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">KPI-Definition und Performance-Framework-Entwicklung</span><span class="req-item-desc">&#x2014; Business Case-Entwicklung und Produktanalysen; Steuerung von CRM-Transformationsprogrammen mit messbaren Zielen.</span></li>
+              </ul>
+            </div>
+            <div>
+              <p class="person-req-label">Soft-Skills</p>
+              <ul class="check-list">
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Durchsetzungsstark und sicher im Umgang mit Komplexit&#xe4;t</span><span class="req-item-desc">&#x2014; Steuerung komplexer Hersteller- und Konfigurator-Teams; mehrfache Programmleitung f&#xfc;r CRM-Transformationen in regulierten Branchen.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Neutraler Moderator &#x2013; keine Parteinahme f&#xfc;r einzelne Fachbereiche</span><span class="req-item-desc">&#x2014; Erfahrung in Fit-Gap-Workshops als unparteiischer Prozessgestalter zwischen Business und IT.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Strukturiertes Denken und klare Kommunikation von Trade-offs</span><span class="req-item-desc">&#x2014; Mehrfach nachgewiesene Fit-Gap-Analysen mit Business Case und klarer Empfehlungsstruktur.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Hohe Eigenverantwortung und Lieferorientierung</span><span class="req-item-desc">&#x2014; Programmleitung inkl. Zeitplan- und Budgetverantwortung f&#xfc;r BSI-Transformationsprojekte bei Schweizer Kunden.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">F&#xe4;higkeit, mit Ambiguit&#xe4;t umzugehen und Konsens zu schaffen</span><span class="req-item-desc">&#x2014; BSI-Migrationsprojekt bei einer Schweizer Sozialversicherung; Steuerung von Stakeholdern mit divergierenden Interessen.</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
 
-<article class="person-block">
-<div class="person-card">
-<img class="person-photo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" alt="Ole Werner">
-<div class="person-card-body">
-<div class="person-card-level">Professional (S3)</div>
-<div class="person-card-name">Ole Werner</div>
-<div class="person-card-loc">D&#xfc;sseldorf, Deutschland</div>
-</div>
-</div>
-<div class="person-body">
-<p class="role-label">Design &amp; Transformation Lead</p>
-<h3>Ole Werner</h3>
-<p class="role-subline">Professional (S3) &middot; BearingPoint</p>
-<ul class="bullets">
-<li><strong>CRM-Strategie &amp; Prozessdesign.</strong> Konsolidierungskonzepte f&#xfc;r heterogene CRM-Landschaften, Zielbild-Definition und Implementierungsplanung f&#xfc;r Versicherungen und F&#xf6;rderbanken.</li>
-<li><strong>Business&#8211;IT-Alignment.</strong> Requirement-Aufnahme, Anbieterauswahl (Salesforce vs. BSI), CRM-Tool-Konfiguration f&#xfc;r Service, Vertrieb und IT.</li>
-<li><strong>Methodenst&#xe4;rke.</strong> BSI Masterclass, PSPO und ITIL4 &#8212; Br&#xfc;cke zwischen fachlichem Prozessdesign und technischer Umsetzung.</li>
-</ul>
-<p class="certs"><strong>Zertifizierungen:</strong> Professional SCRUM PO &middot; ITIL4 Foundation &middot; BSI Masterclass &middot; M.Sc. Wirtschaftswiss., B.Sc. BWL</p>
-<div class="person-req">
-<div>
-<p class="person-req-label">Skills</p>
-<ul class="check-list">
-<li><span class="chk">&#x2713;</span><strong>Gesch&auml;ftsprozessmodellierung (BPMN 2.0 oder &auml;quivalent)</strong> &#8212; End-to-End-Optimierung des CRMs einer dt. Versicherung; BSI Masterclass-zertifiziert; Prozessdesign und Konsolidierungskonzepte f&uuml;r heterogene CRM-Landschaften.</li>
-<li><span class="chk">&#x2713;</span><strong>Lean / Six Sigma Methodik (Green Belt oder h&ouml;her bevorzugt)</strong> &#8212; ITIL4 Foundation (Service Management) zertifiziert; strukturierter Methodik-Ansatz in Prozessdesign, Requirement-Aufnahme und CRM-Konsolidierungskonzepten.</li>
-<li><span class="chk">&#x2713;</span><strong>CRM-Dom&auml;nenwissen: Marketing, Sales und/oder Customer Service Prozesse</strong> &#8212; CRM-Tool-Konfiguration f&uuml;r Service-, Vertriebs- und IT-Bereiche einer dt. F&ouml;rderbank; CRM-Strategieentwicklung f&uuml;r Versicherungen.</li>
-<li><span class="chk">&#x2713;</span><strong>Workshop-Design und Moderationstechniken</strong> &#8212; Requirement-Aufnahme und Anbieterauswahl (Salesforce vs. BSI) f&uuml;r dt. Versicherung; Strategiekonzept-Workshops zur CRM-Konsolidierung moderiert.</li>
-<li><span class="chk">&#x2713;</span><strong>Target Operating Model Design</strong> &#8212; Erstellung eines Zielbilds und Implementierungsplans f&uuml;r neue Maklerplattform eines dt. Versicherers; Strategiekonzept zur Konsolidierung heterogener CRM-Systeme.</li>
-<li><span class="chk">&#x2713;</span><strong>KPI-Definition und Performance-Framework-Entwicklung</strong> &#8212; PSPO-zertifiziert; KPI-orientiertes Backlog-Management und messbare Zieldefinition in CRM-Transformationsprojekten nachgewiesen.</li>
-</ul>
-</div>
-<div>
-<p class="person-req-label">Soft-Skills</p>
-<ul class="check-list">
-<li><span class="chk">&#x2713;</span><strong>Durchsetzungsstark und sicher im Umgang mit Komplexit&auml;t</strong> &#8212; Anbieterauswahl (Salesforce vs. BSI) mit strukturierter Empfehlung f&uuml;r dt. Versicherung; souver&auml;ne Positionierung in komplexen Entscheidungsprozessen.</li>
-<li><span class="chk">&#x2713;</span><strong>Neutraler Moderator &mdash; vermeidet Parteinahme f&uuml;r einzelne Fachbereiche</strong> &#8212; Externe Beraterrolle ohne interne Interessenkonflikte; Business-IT-Alignment-Erfahrung in heterogenen Stakeholder-Umgebungen bei Versicherungen und F&ouml;rderbanken.</li>
-<li><span class="chk">&#x2713;</span><strong>Strukturiertes Denken und klare Darstellung von Trade-offs</strong> &#8212; Konsolidierungskonzepte f&uuml;r heterogene CRM-Landschaften; strukturierte Anbietervergleiche (Salesforce vs. BSI) und Entscheidungsvorlagen.</li>
-<li><span class="chk">&#x2713;</span><strong>Hohe Verantwortlichkeit und Lieferorientierung</strong> &#8212; PSPO-zertifiziert; Product-Owner-Verantwortung f&uuml;r Deliverables und Backlog in CRM-Transformationsprojekten nachgewiesen.</li>
-<li><span class="chk">&#x2713;</span><strong>F&auml;higkeit, mit Mehrdeutigkeiten umzugehen und Konsens herzustellen</strong> &#8212; Br&uuml;cke zwischen fachlichem Prozessdesign und technischer Umsetzung (BSI Masterclass + ITIL4 + PSPO); heterogene Stakeholder-Konsolidierung.</li>
-</ul>
-</div>
-</div>
-</div>
-</article>
-</div>
-</section>
+      <!-- OLE WERNER -->
+      <article class="person-block">
+        <div class="person-card">
+          <div class="person-card-initials">OW</div>
+          <div class="person-card-body">
+            <div class="person-card-level">Professional (S3)</div>
+            <div class="person-card-name">Ole Werner</div>
+            <div class="person-card-loc">D&#xfc;sseldorf, Deutschland</div>
+          </div>
+        </div>
+        <div class="person-body">
+          <p class="role-label">Design &amp; Transformation Lead</p>
+          <h3>Ole Werner</h3>
+          <p class="role-subline">Professional (S3) &middot; BearingPoint</p>
+          <ul class="bullets">
+            <li><strong>CRM-Strategie &amp; Prozessdesign.</strong> Konsolidierungskonzepte f&#xfc;r heterogene CRM-Landschaften, Zielbild-Definition und Implementierungsplanung f&#xfc;r Versicherungen und F&#xf6;rderbanken.</li>
+            <li><strong>Business&#8211;IT-Alignment.</strong> Requirement-Aufnahme, Anbieterauswahl (Salesforce vs. BSI), CRM-Tool-Konfiguration f&#xfc;r Service, Vertrieb und IT.</li>
+            <li><strong>Methodenst&#xe4;rke.</strong> BSI Masterclass, PSPO und ITIL4 &#8212; Br&#xfc;cke zwischen fachlichem Prozessdesign und technischer Umsetzung.</li>
+          </ul>
+          <p class="certs"><strong>Zertifizierungen:</strong> Professional SCRUM PO &middot; ITIL4 Foundation &middot; BSI Masterclass &middot; M.Sc. Wirtschaftswiss., B.Sc. BWL</p>
+          <div class="person-req">
+            <div>
+              <p class="person-req-label">Skills</p>
+              <ul class="check-list">
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Business Process Modeling (BPMN 2.0 oder gleichwertig)</span><span class="req-item-desc">&#x2014; CRM-Konsolidierungskonzepte f&#xfc;r heterogene Landschaften; Zielbild-Definition und Implementierungsplanung f&#xfc;r Versicherungen und F&#xf6;rderbanken.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Lean / Six Sigma Methodik (Green Belt oder h&#xf6;her bevorzugt)</span><span class="req-item-desc">&#x2014; ITIL4 Foundation; strukturierter Ansatz f&#xfc;r Prozessoptimierung und Servicedesign in CRM-Projekten.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">CRM-Dom&#xe4;nenwissen: Marketing, Sales und/oder Customer Service</span><span class="req-item-desc">&#x2014; Requirement-Aufnahme und Anbieterauswahl (Salesforce vs. BSI); CRM-Tool-Konfiguration f&#xfc;r Service, Vertrieb und IT.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Workshop-Design und Moderationstechniken</span><span class="req-item-desc">&#x2014; Professional SCRUM Product Owner; erfahren in Requirements-Workshops und iterativer Anforderungserhebung.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Target Operating Model Design</span><span class="req-item-desc">&#x2014; CRM-Strategie und Zielbild-Definition; Entwicklung von Implementierungspl&#xe4;nen f&#xfc;r unterschiedliche Unternehmenstypen.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">KPI-Definition und Performance-Framework-Entwicklung</span><span class="req-item-desc">&#x2014; Requirement-Management und Erfolgsmetriken f&#xfc;r CRM-Transformationen; strukturierte Abnahmekriterien und Tracking.</span></li>
+              </ul>
+            </div>
+            <div>
+              <p class="person-req-label">Soft-Skills</p>
+              <ul class="check-list">
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Durchsetzungsstark und sicher im Umgang mit Komplexit&#xe4;t</span><span class="req-item-desc">&#x2014; BSI Masterclass und PSPO; souver&#xe4;ner Umgang mit komplexen Anforderungen und divergierenden Stakeholder-Erwartungen.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Neutraler Moderator &#x2013; keine Parteinahme f&#xfc;r einzelne Fachbereiche</span><span class="req-item-desc">&#x2014; Anbieterauswahl (Salesforce vs. BSI) als unabh&#xe4;ngige Empfehlung; Business-IT-Alignment als Kernkompetenz.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Strukturiertes Denken und klare Kommunikation von Trade-offs</span><span class="req-item-desc">&#x2014; M.Sc. Wirtschaftswiss. und B.Sc. BWL; analytische Herangehensweise und klare Entscheidungsgrundlagen.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Hohe Eigenverantwortung und Lieferorientierung</span><span class="req-item-desc">&#x2014; Eigenst&#xe4;ndige Entwicklung von CRM-Konsolidierungskonzepten von der Analyse bis zur Implementierungsplanung.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">F&#xe4;higkeit, mit Ambiguit&#xe4;t umzugehen und Konsens zu schaffen</span><span class="req-item-desc">&#x2014; CRM-Strategie f&#xfc;r heterogene Landschaften; Konsensfindung zwischen unterschiedlichen Fachbereichen und Systemen.</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
 
-<!-- ROLLE 3: CHANGE MANAGEMENT & ADOPTION -->
-<section class="role-section">
-<div class="container">
-<p class="eyebrow"><span class="accent-bar"></span>Rolle 3</p>
-<h2>Change Management &amp; Adoption</h2>
+    </div>
+  </section>
 
-<article class="person-block">
-<div class="person-card">
-<img class="person-photo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" alt="Simone Venier">
-<div class="person-card-body">
-<div class="person-card-level">Professional (S3)</div>
-<div class="person-card-name">Simone Venier</div>
-<div class="person-card-loc">Z&#xfc;rich, Schweiz</div>
-</div>
-</div>
-<div class="person-body">
-<p class="role-label">Change Management &amp; Adoption</p>
-<h3>Simone Venier</h3>
-<p class="role-subline">Professional (S3) &middot; BearingPoint Z&#xfc;rich</p>
-<ul class="bullets">
-<li><strong>Datengetriebenes Change Management.</strong> Change-Strategie, Stakeholder-Analysen, Change Readiness Assessments und Persona Workshops aus der Praxis &#8212; strukturiert, messbar und mit KPIs verkn&#xfc;pft.</li>
-<li><strong>Training f&#xfc;r 5.000+ End User.</strong> Skalierbares Trainings- und Tracking-Framework f&#xfc;r 12 L&#xe4;nder; globale Train-the-Trainer-Workshops und Feedback-Analyse zur Sicherung der Adoption.</li>
-<li><strong>Rollenbasierte Learning Journeys.</strong> Trainingsstrategie, Bedarfsanalyse und Entwicklung zielgruppenspezifischer Lernpfade f&#xfc;r Business-Transformationen.</li>
-<li><strong>Lokaler Anker in Z&#xfc;rich.</strong> Senior Business Consultant, BearingPoint Z&#xfc;rich seit 2024 &#8212; direkter Standortbezug zur Schweizerischen Post.</li>
-</ul>
-<p class="certs"><strong>Zertifizierungen:</strong> SAP Organizational Change Management &middot; WalkMe Builder / Delivery / PM &middot; Scrum Master &amp; Product Owner &middot; SAP ACTIVATE &middot; Business Moderator / Systemischer Coach &middot; MSc Wirtschaftsp&#xe4;dagogik, Univ. Innsbruck</p>
-<div class="person-req">
-<div>
-<p class="person-req-label">Skills</p>
-<ul class="check-list">
-<li><span class="chk">&#x2713;</span><strong>PROSCI / ADKAR oder gleichwertige Change Management Zertifizierung</strong> &#8212; SAP Zert. Organizational Change Management; Zert. Business Moderator / Systemischer Coach; umfassendes Change-Konzept f&uuml;r CRM &amp; ERP Einf&uuml;hrung bei Schweizer Handelsunternehmen umgesetzt.</li>
-<li><span class="chk">&#x2713;</span><strong>Stakeholder-Mapping und Impact Assessment</strong> &#8212; Stakeholderanalyse und Change Impact Analyse als Kernbestandteil jedes Projekts; Change Readiness Assessments und Persona Workshops f&uuml;r Microsoft PMI durchgef&uuml;hrt.</li>
-<li><span class="chk">&#x2713;</span><strong>Trainingsbedarfsanalyse und Content-Entwicklung</strong> &#8212; Training Lead: Trainingsstrategie und Bedarfsanalyse; rollenbasierte Learning Journeys f&uuml;r 5.000+ End User in 12 L&auml;ndern entwickelt (SAP S/4HANA Carve-Out).</li>
-<li><span class="chk">&#x2713;</span><strong>Kommunikationsplanung und Content-Erstellung</strong> &#8212; Change- und Kommunikationsstrategie f&uuml;r Microsoft PMI; Kommunikationskonzept f&uuml;r CRM &amp; ERP Einf&uuml;hrung; WalkMe Builder1 &amp; Builder2-zertifiziert.</li>
-<li><span class="chk">&#x2713;</span><strong>Adoptionsmessung und Feedback-Mechanismen</strong> &#8212; Skalierbares Trainings- und Tracking-Framework f&uuml;r 12 L&auml;nder und 5.000+ End User; Analyse von Feedback-Daten zur Sicherstellung der Adoption.</li>
-</ul>
-</div>
-<div>
-<p class="person-req-label">Soft-Skills</p>
-<ul class="check-list">
-<li><span class="chk">&#x2713;</span><strong>Hohe Empathie und Verst&auml;ndnis f&uuml;r unterschiedliche Nutzerbedarf&uuml;rfnisse</strong> &#8212; Systemische Coach (zertifiziert) und Business Moderatorin; Persona Workshops und rollenbasierte Learning Journeys f&uuml;r unterschiedliche Zielgruppen.</li>
-<li><span class="chk">&#x2713;</span><strong>Starke interpersonale und Coaching-F&auml;higkeiten</strong> &#8212; Systemischer Coach (zertifiziert); globale Train-the-Trainer-Workshops in 12 L&auml;ndern durchgef&uuml;hrt; Anleitung von Trainingsunterlagenentwicklern.</li>
-<li><span class="chk">&#x2713;</span><strong>F&auml;higkeit, komplexe Ver&auml;nderungen in klare Nutzerbotschaften zu &uuml;bersetzen</strong> &#8212; 5.000+ End User trainiert (12 L&auml;nder); WalkMe Builder1 &amp; Builder2-zertifiziert f&uuml;r benutzerfreundliche digitale Adoption.</li>
-<li><span class="chk">&#x2713;</span><strong>Energie und Resilienz gegen&uuml;ber organisationalem Widerstand</strong> &#8212; Internationale Change-Erfahrung bei SAP S/4HANA Carve-Out (12 L&auml;nder, 5.000+ User) und CRM &amp; ERP Transformation mit nachweislichem Adoptionserfolg.</li>
-</ul>
-</div>
-</div>
-</div>
-</article>
-</div>
-</section>
+  <!-- CHANGE MANAGEMENT & ADOPTION -->
+  <section class="role-section">
+    <div class="container">
+      <p class="eyebrow"><span class="accent-bar"></span>Rolle 3</p>
+      <h2>Change Management &amp; Adoption</h2>
 
+      <!-- SIMONE VENIER -->
+      <article class="person-block">
+        <div class="person-card">
+          <div class="person-card-initials">SV</div>
+          <div class="person-card-body">
+            <div class="person-card-level">Professional (S3)</div>
+            <div class="person-card-name">Simone Venier</div>
+            <div class="person-card-loc">Z&#xfc;rich, Schweiz</div>
+          </div>
+        </div>
+        <div class="person-body">
+          <p class="role-label">Change Management &amp; Adoption</p>
+          <h3>Simone Venier</h3>
+          <p class="role-subline">Professional (S3) &middot; BearingPoint Z&#xfc;rich</p>
+          <ul class="bullets">
+            <li><strong>Datengetriebenes Change Management.</strong> Change-Strategie, Stakeholder-Analysen, Change Readiness Assessments und Persona Workshops aus der Praxis &#8212; strukturiert, messbar und mit KPIs verkn&#xfc;pft.</li>
+            <li><strong>Training f&#xfc;r 5.000+ End User.</strong> Skalierbares Trainings- und Tracking-Framework f&#xfc;r 12 L&#xe4;nder; globale Train-the-Trainer-Workshops und Feedback-Analyse zur Sicherung der Adoption.</li>
+            <li><strong>Rollenbasierte Learning Journeys.</strong> Trainingsstrategie, Bedarfsanalyse und Entwicklung zielgruppenspezifischer Lernpfade f&#xfc;r Business-Transformationen.</li>
+            <li><strong>Lokaler Anker in Z&#xfc;rich.</strong> Senior Business Consultant, BearingPoint Z&#xfc;rich seit 2024 &#8212; direkter Standortbezug zur Schweizerischen Post.</li>
+          </ul>
+          <p class="certs"><strong>Zertifizierungen:</strong> SAP Organizational Change Management &middot; WalkMe Builder / Delivery / PM &middot; Scrum Master &amp; Product Owner &middot; SAP ACTIVATE &middot; Business Moderator / Systemischer Coach &middot; MSc Wirtschaftsp&#xe4;dagogik, Univ. Innsbruck</p>
+          <div class="person-req">
+            <div>
+              <p class="person-req-label">Skills</p>
+              <ul class="check-list">
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">PROSCI / ADKAR oder gleichwertige Change-Management-Zertifizierung</span><span class="req-item-desc">&#x2014; SAP Organizational Change Management; strukturiertes Change-Management nach bew&#xe4;hrten Frameworks f&#xfc;r globale Transformationen.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Stakeholder-Mapping und Impact-Analyse</span><span class="req-item-desc">&#x2014; Stakeholder-Analysen und Change Readiness Assessments aus der Praxis; strukturiert, messbar und mit KPIs verkn&#xfc;pft.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Trainingsbedarfsanalyse und Content-Entwicklung</span><span class="req-item-desc">&#x2014; Skalierbares Trainings- und Tracking-Framework f&#xfc;r 5.000+ End User in 12 L&#xe4;ndern; rollenbasierte Learning Journeys.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Kommunikationsplanung und Content-Erstellung</span><span class="req-item-desc">&#x2014; Change-Strategie und globale Train-the-Trainer-Workshops; zielgruppenspezifische Kommunikation f&#xfc;r Business-Transformationen.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Adoptionsmessung und Feedback-Mechanismen</span><span class="req-item-desc">&#x2014; WalkMe Builder / Delivery / PM; Feedback-Analyse und Adoptionstracking zur Sicherung des Transformationserfolgs.</span></li>
+              </ul>
+            </div>
+            <div>
+              <p class="person-req-label">Soft-Skills</p>
+              <ul class="check-list">
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Hohe Empathie und Verst&#xe4;ndnis f&#xfc;r unterschiedliche User-Bed&#xfc;rfnisse</span><span class="req-item-desc">&#x2014; MSc Wirtschaftsp&#xe4;dagogik; systemischer Coach mit tiefem Verst&#xe4;ndnis f&#xfc;r Lern- und Ver&#xe4;nderungsprozesse.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Starke interpersonelle F&#xe4;higkeiten und Coaching-Kompetenz</span><span class="req-item-desc">&#x2014; Business Moderator und systemischer Coach; Train-the-Trainer-Workshops in 12 L&#xe4;ndern.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">F&#xe4;higkeit, komplexe Ver&#xe4;nderungen in klare User-Botschaften zu &#xfc;bersetzen</span><span class="req-item-desc">&#x2014; Trainings f&#xfc;r 5.000+ End User; zielgruppenspezifische Lernpfade f&#xfc;r unterschiedliche Rollen und Branchen.</span></li>
+                <li><span class="chk">&#x2713;</span><span class="req-item-label">Energie und Resilienz gegen&#xfc;ber organisationalem Widerstand</span><span class="req-item-desc">&#x2014; Globale Transformationsprojekte mit 12 L&#xe4;ndern; Change Readiness Assessments und proaktives Widerstandsmanagement.</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
 
-<section class="closing">
-  <div class="container">
-    <p class="closing-line">
-      Wir freuen uns auf den persönlichen Austausch im Rahmen der Vorstellungsrunde.
-    </p>
-    <p class="closing-contact">
-      BearingPoint Switzerland AG · Carsten Schulz · carsten.schulz@bearingpoint.com · +49 1624117922
-    </p>
-  </div>
-</section>
+    </div>
+  </section>
 
+  <section class="closing">
+    <div class="container">
+      <p class="closing-line">
+        Wir freuen uns auf den pers&#xf6;nlichen Austausch im Rahmen der Vorstellungsrunde.
+      </p>
+      <p class="closing-contact">
+        BearingPoint Switzerland AG &middot; Carsten Schulz &middot; carsten.schulz@bearingpoint.com &middot; +49 1624117922
+      </p>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-row">
-    <span>© 2026 BearingPoint Switzerland AG</span>
-    <span>Vertraulich — ausschliesslich für Die Schweizerische Post AG</span>
+    <span>&#169; 2026 BearingPoint Switzerland AG</span>
+    <span>Vertraulich &#8212; ausschliesslich f&#xfc;r Die Schweizerische Post AG</span>
   </div>
 </footer>
-
 </body>
 </html>
