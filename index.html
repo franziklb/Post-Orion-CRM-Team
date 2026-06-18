@@ -26,6 +26,12 @@ body{
 }
 .container{max-width:1180px;margin-inline:auto;padding-inline:32px}
 
+.person-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* HEADER */
 .site-header{
   border-block-end:1px solid var(--g20);
@@ -214,15 +220,18 @@ body{
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container header-row">
-    <a class="brand" href="#" aria-label="BearingPoint">BearingPoint</a>
-    <div class="client">
-      <span class="client-label">Vorgelegt f&#xfc;r</span>
-      <span class="client-name">Die Schweizerische Post</span>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="#" aria-label="BearingPoint">
+        <img src="assets/bearingpoint-logo.png" alt="BearingPoint" />
+      </a>
+      <div class="client">
+        <span class="client-label">Vorgelegt für</span>
+        <img src="assets/post-logo.png" alt="Die Schweizerische Post" />
+      </div>
     </div>
-  </div>
-</header>
+  </header>
+
 
 <main>
   <section class="hero">
@@ -258,10 +267,10 @@ body{
       <!-- DANIEL KLEMM -->
       <article class="person-block">
         <div class="person-card">
-          <div class="person-card-initials">SV</div>
+        <img class="person-card-image" src="https://raw.githubusercontent.com/franziklb/Post-Orion-CRM-Team/main/assets/DK.png" alt="Daniel Klemm">
           <div class="person-card-body">
             <div class="person-card-level">Professional (S3)</div>
-            <div class="person-card-name">Simone Venier</div>
+            <div class="person-card-name">Daniel Klemm</div>
             <div class="person-card-loc">Z&#xfc;rich, Schweiz</div>
           </div>
         </div>
@@ -303,7 +312,9 @@ body{
       <!-- STEFAN WALESCH -->
       <article class="person-block">
         <div class="person-card">
-          <div class="person-card-initials">SW</div>
+        <img class="person-card-image" 
+             src="https://raw.githubusercontent.com/franziklb/Post-Orion-CRM-Team/main/assets/WS.png" 
+             alt="Stefan Walesch">
           <div class="person-card-body">
             <div class="person-card-level">Expert (S4)</div>
             <div class="person-card-name">Stefan Walesch</div>
@@ -357,7 +368,9 @@ body{
       <!-- ROLAND WENDL -->
       <article class="person-block">
         <div class="person-card">
-          <div class="person-card-initials">RW</div>
+        <img class="person-card-image" 
+             src="https://raw.githubusercontent.com/franziklb/Post-Orion-CRM-Team/main/assets/RW.png" 
+             alt="Roland Wendl">
           <div class="person-card-body">
             <div class="person-card-level">Senior Expert (S5)</div>
             <div class="person-card-name">Roland Wendl</div>
@@ -403,7 +416,9 @@ body{
       <!-- OLE WERNER -->
       <article class="person-block">
         <div class="person-card">
-          <div class="person-card-initials">OW</div>
+        <img class="person-card-image" 
+             src="https://raw.githubusercontent.com/franziklb/Post-Orion-CRM-Team/main/assets/OW.png" 
+             alt="Ole Werner">
           <div class="person-card-body">
             <div class="person-card-level">Professional (S3)</div>
             <div class="person-card-name">Ole Werner</div>
@@ -458,7 +473,9 @@ body{
       <!-- SIMONE VENIER -->
       <article class="person-block">
         <div class="person-card">
-          <div class="person-card-initials">SV</div>
+        <img class="person-card-image" 
+             src="https://raw.githubusercontent.com/franziklb/Post-Orion-CRM-Team/main/assets/SV.png" 
+             alt="Simone Venier">
           <div class="person-card-body">
             <div class="person-card-level">Professional (S3)</div>
             <div class="person-card-name">Simone Venier</div>
