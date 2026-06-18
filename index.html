@@ -69,7 +69,7 @@ body{
 
 /* PERSON BLOCK */
 .person-block{
-  display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start;
+  display:grid;grid-template-columns:1fr 2.5fr;gap:48px;align-items:start;
   padding-block:48px;border-block-start:1px solid var(--g20);
 }
 .person-block:first-of-type{border-block-start:none;padding-block-start:0}
@@ -137,14 +137,15 @@ body{
 
 /* CLOSING */
 .closing{
-  padding-block:96px 88px;background:var(--white);
+  padding-block:72px 64px;background:var(--white);
   border-block-start:1px solid var(--g20);
 }
 .closing-line{
-  font-size:clamp(20px,2.2vw,28px);font-weight:700;
-  margin-block-end:16px;max-width:36ch;letter-spacing:-.01em;
+  font-size:clamp(24px,2.5vw,34px);font-weight:700;line-height:1.2;
+  margin-block-end:20px;max-width:28ch;letter-spacing:-.02em;
+  text-align:start;
 }
-.closing-contact{color:var(--g50);font-size:14px}
+.closing-contact{color:var(--g50);font-size:14px;line-height:1.6;text-align:start}
 
 /* FOOTER */
 .site-footer{border-block-start:1px solid var(--g20);padding-block:24px;background:var(--white)}
