@@ -198,10 +198,10 @@ body{
   font-size:10px;text-transform:uppercase;letter-spacing:.1em;
   color:var(--g50);font-weight:600;margin-block-end:8px;
 }
-.check-list{list-style:none;padding:0;margin:0}
+
 .check-list li{
   display:grid;
-  grid-template-columns:15px 38% 1fr;
+  grid-template-columns: auto 38% 1fr;
   gap:0 10px;
   align-items:start;
   font-size:12px;
@@ -209,6 +209,7 @@ body{
   padding-block:8px;
   border-block-end:1px solid var(--g20);
 }
+
 .check-list li:last-child{border-block-end:none;padding-block-end:0}
 .chk{
   width:15px;height:15px;flex-shrink:0;
